@@ -1,0 +1,663 @@
+/* NAME: vena ellison */
+
+
+/* CSS RESET */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CSS RESET END */
+
+
+/* BASICS & VARIABLES */
+@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
+
+:root{
+  --yellow: #F6D64A;
+  --teal: #55BCD5;
+  --purple: #9B26B0;
+  --blue: #499BD2;
+  --dark-gray: #222222;
+  --light-gray: #EAEAEA;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
+h1, h2, h3 {
+  font-family: 'Molle', cursive;
+}
+
+h4, p, q, small, nav, button, form {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p {
+  line-height: 2;
+}
+
+p, q, small, nav, button, form {
+  font-size: 16px;
+}
+
+
+/* SKIPLINK */
+#skip{
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+   
+#skip:focus{
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+
+/* HEADER & NAV */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(to bottom, var(--teal), var(--white));
+}
+
+#menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  right: 10px;
+  top: 10px;
+  width: 100%;
+  align-items: right;
+  margin-bottom: 10px; 
+}
+
+nav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  background-color: var(--blue);
+  color: var(--black);
+}
+
+#logo {
+  margin-right: auto; 
+}
+
+#menu-toggle > div {
+  margin-left: auto; 
+}
+
+#toggle {
+  display: none; 
+}
+
+label {
+  display: inline-block;
+  padding: 10px;
+  background-color: var(--yellow);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+ul {
+  display: none; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin: 0;
+}
+
+ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: var(--dark-gray);
+}
+
+#toggle:checked + label + ul {
+  display: block;
+}
+
+
+/* SCREEN READER ONLY */
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  overflow: hidden;
+}
+
+
+/* MAJORCA SECTION */
+#intro {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+#intro h2, #intro p {
+  width: 85%;
+  margin: auto;
+}
+
+#img-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 10px;
+}
+
+#img-grid img, #img-grid picture {
+  width: 100%;
+  height: auto;
+  padding-bottom: 10px;
+}
+
+
+/* PLAN YOUR TRIP */
+#plan {
+  background-color: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+#plan h3 {
+  padding: 10px;
+}
+
+#plan div {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin: auto;
+  padding: 20px;
+}
+
+#plan section {
+  background-color: var(--teal);
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 250px; 
+  height: 250px; 
+  margin: auto; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#plan h4 {
+  padding-bottom: 10px;
+}
+
+#plan img {
+  width: 175px;
+  height: 175px;
+}
+
+
+/* TESTIMONIALS */
+#testimonials {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+}
+
+#testimonials h3 {
+  text-align: left;
+}
+
+#testimonials div {
+  align-items: center;
+  padding: 20px;
+}
+
+#testimonials section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+#testimonials q {
+  text-align: center;
+}
+
+
+/* DESTINATION */
+#about {
+  padding: 20px;
+  background-color: var(--blue);
+  text-align: center; 
+  margin: auto;
+}
+
+#about div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  width: 75%;
+  margin: auto; 
+}
+
+#about section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+
+/* CONTACT */
+.form-required {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+.required {
+  color: var(--purple);
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  margin: auto;
+}
+
+#contact h3 {
+  align-items: left;
+  padding-top: 20px;
+}
+
+form{
+	display: block;
+	margin: auto;
+}
+
+input, label, fieldset, select {
+  display: block;
+  width: 100%;
+}
+
+#contact label {
+  margin: 20px 0 10px 0;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+
+input{
+	padding: 10px;
+	border: 2px solid var(--purple);
+	height: 1.5em;
+}
+
+fieldset {
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+}
+
+input[type=text], input[type=email], input[type=tel] {
+  padding: 10px;
+  border: 2px solid var(--purple);
+  border-radius: 4px;
+  height: 1.5em;
+}
+
+input[type=radio] {
+  display: none; 
+}
+
+.radio-input {
+  position: relative;
+  display: inline-block;
+  width: 50px; 
+  height: 50px; 
+  margin-right: 10px;
+  cursor: pointer;
+} 
+
+.radio-control {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid var(--purple); 
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.radio-input:hover .radio-control {
+  border-color: var(--black); 
+}
+
+input[type=radio]:checked + .radio-control {
+  background: var(--purple); 
+}
+
+select {
+  padding: 10px;
+  border: 2px solid var(--purple);
+  border-radius: 4px;
+}
+
+input[type=submit] {
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  color: white;
+  background-color: var(--purple);
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+
+/* MEDIUM SCREEN SIZE */
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+  /* HEADER & NAV */
+  nav label {
+    display: none;
+  }
+  
+  ul {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  nav {
+    position: relative;
+    top: 10px;
+    text-align: center;
+  }
+
+  nav a {
+    background-color: var(--white);
+  }
+
+  nav a:hover {
+    background-color: var(--yellow);
+  }
+  
+  
+  /* MAJORCA */
+  #intro div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+  }
+
+  #intro img:first-of-type {
+    grid-column: 1 / 1;
+  }
+
+  #intro img:nth-of-type(2) {
+    grid-column: 2 / 2;
+  }
+
+  #intro picture {
+    grid-column: span 2;
+    grid-row: 2;
+  }
+
+
+  /* PLAN YOUR TRIP */
+  #plan div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
+
+
+  /* TESTIMONIALS */
+  #testimonials div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
+
+
+  /* ABOUT DESTINATION */
+  #about {
+    padding-bottom: 10px;
+  }
+
+  #about div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+
+  /* CONTACT FORM */
+  #nums label {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  input[type=submit] {
+    position: relative;
+    left: 350px;
+    bottom: 10px;
+    width: 100px;
+  }
+}
+
+
+/* LARGE SCREEN SIZE */
+@media only screen and (min-width: 1024px) {
+  header {
+    display: block;
+  }
+
+  header h1, header p {
+    position: relative;
+    left: 200px;
+    top: -80px;
+  }
+
+  nav label {
+    display: none;
+  }
+  
+  ul {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  nav {
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    text-align: center;
+  }
+
+  nav a {
+    background-color: var(--white);
+  }
+
+  nav a:hover {
+    background-color: var(--yellow);
+  }
+
+  /* MAJORCA */
+  #intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #intro h2 {
+    grid-column: 1 / 1;
+    align-content: baseline;
+  }
+
+  #intro p {
+    grid-column: 1 / 1;
+  }
+
+  #img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  #intro img:first-of-type {
+    grid-column: 1 / 1;
+  }
+
+  #intro img:nth-of-type(2) {
+    grid-column: 2 / 2;
+  }
+
+  #intro picture {
+    grid-column: span 2;
+    grid-row: 2;
+  }
+
+  /* PLAN YOUR TRIP */
+  #plan div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* TESTIMONIALS */
+  #testimonials div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* DESTINATIONS */
+  #about div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* CONTACT */
+  #contact form {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .radio-input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 20px; 
+    height: 20px; 
+  } 
+  
+  #contact fieldset label {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+}
+
+
+
+
